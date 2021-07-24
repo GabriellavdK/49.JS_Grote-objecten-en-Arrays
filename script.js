@@ -70,8 +70,6 @@ const expiredCreditcards = randomPersonData.filter(({ age, credit_card }) => {
 }).map((item) => {
 	return `Name: ${item.name} ${item.surname}<br>Phone number: ${item.phone}<br>Creditcard number: ${item.credit_card.number}<br>Expiration date: ${item.credit_card.expiration}`;
 }).sort(function (a, b) {
-	// console.log(a);
-	// console.log(b);
 	let getDate = (item) => {
 		item = Array.from(item.split("").reverse().join("").split(" ")[0]);
 		if (item.length === 4) {
@@ -83,24 +81,7 @@ const expiredCreditcards = randomPersonData.filter(({ age, credit_card }) => {
 	}
 	a = getDate(a);
 	b = getDate(b);
-	// console.log(a);
-	// console.log(b);
 	return a - b;
 });
 
 buttonOuweCreditcards.addEventListener('click', () => addToDOM(expiredCreditcards));
-
-
-
-
-
-	// .sort(item => item.name
-	// 	// 	({ credit_card }) => {
-	// 	// 	let date = credit_card.expiration;
-	// 	// 	console.log(date);
-	// 	// 	if (credit_card.expiration.length === 4) { date = `0${credit_card.expiration}` }
-	// 	// 	date = date.split("/").reverse().join('');
-	// 	// 	console.log(date);
-	// 	// 	return date;
-	// 	// }
-	// )
